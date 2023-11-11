@@ -1,3 +1,4 @@
 # leetcode-python
+
 https://www.youtube.com/@NeetCode
-follwo this guy to practice code
+follow this guy to practice code
