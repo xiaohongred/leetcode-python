@@ -7,11 +7,11 @@ class Solution:
         for crs, pre in prerequisites:
             preMap[crs].append(pre)
 
-        print(preMap)
+        # print(preMap)
         visitSet = set()
 
         def dfs(crs):
-            print(preMap)
+            # print(preMap)
             if crs in visitSet:
                 return False
             if preMap[crs] == []:
