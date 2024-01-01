@@ -39,8 +39,9 @@ class LRUCache:
 
         if len(self.cache) > self.cap:
             lru = self.left.next
+            delKey = lru.key
             self.remove(lru)
-            del self.cache[lru.key]
+            del self.cache[delKey]
 
 
 if __name__ == '__main__':
