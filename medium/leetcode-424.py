@@ -14,4 +14,9 @@ class Solution:
 
 
 if __name__ == '__main__':
-    pass
+    s = "ABAB"
+    k = 2
+
+    so = Solution()
+    a = so.characterReplacement(s, k)
+    print(a)
