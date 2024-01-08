@@ -11,6 +11,7 @@ class Solution:
         r2 = self.helper(nums[:len(nums) - 1])
         return max(r1, r2)
 
+    #
     def helper(self, nums: List[int]) -> int:
         rob1, rob2 = 0, 0
         for n in nums:
