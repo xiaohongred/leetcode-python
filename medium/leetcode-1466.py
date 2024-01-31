@@ -34,4 +34,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    pass
+    n = 6
+    connections = [[0, 1], [1, 3], [2, 3], [4, 0], [4, 5]]
+    s = Solution()
+    a = s.minReorder(n, connections)
+    print(a)

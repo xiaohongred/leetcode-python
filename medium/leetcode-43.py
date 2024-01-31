@@ -31,7 +31,7 @@ class Solution:
                 digit = int(num1[i1]) * int(num2[i2])
                 res[i1 + i2] += digit % 10
                 res[i1 + i2 + 1] += (digit // 10)
-        
+
         for i in range(len(res) - 1):
             if res[i] >= 10:
                 res[i + 1] += res[i] // 10
@@ -46,4 +46,13 @@ class Solution:
 
 
 if __name__ == '__main__':
-    pass
+    num1 = "2"
+    num2 = "3"
+    s = Solution()
+    a = s.multiplyV2(num1, num2)
+    print(a)
+
+    num1 = "123"
+    num2 = "456"
+    a = s.multiply(num1, num2)
+    print(a)
