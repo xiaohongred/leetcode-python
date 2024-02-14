@@ -37,5 +37,6 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     nums = [3, 2, 3]
     print(s.majorityElement(nums))
