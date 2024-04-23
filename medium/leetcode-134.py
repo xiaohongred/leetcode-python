@@ -40,5 +40,5 @@ if __name__ == '__main__':
     gas = [1, 2, 3, 4, 5]
     cost = [3, 4, 5, 1, 2]
     s = Solution()
-    a = s.canCompleteCircuit(gas, cost)
+    a = s.canCompleteCircuitV2(gas, cost)
     print(a)
