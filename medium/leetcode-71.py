@@ -2,14 +2,14 @@ class Solution:
     def simplifyPath(self, path: str) -> str:
         stack = []
         cur = ""
-        for c in path + "/":
+        for c in path + "/":  # 结尾加上/ , 处理最后一部分为 .. 的情况
             if c == "/":
                 if cur == "..":
                     if stack:
                         stack.pop()
                 elif cur != "" and cur != ".":
                     stack.append(cur)
-                
+
                 cur = ""
             else:
                 cur += c
