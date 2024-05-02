@@ -70,10 +70,10 @@ if __name__ == '__main__':
     a = s.minDays(n)
     print(a)
 
-    n = 5126970
-    s = Solution()
-    a = s.minDaysV2(n)
-    print(a)
+    # n = 5126970
+    # s = Solution()
+    # a = s.minDaysV2(n)
+    # print(a)
 
     n = 5126970
     s = Solution()
