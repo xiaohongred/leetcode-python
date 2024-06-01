@@ -21,7 +21,7 @@ class Solution:
         visited.add(1)
         while q:
             square, moves = q.popleft()
-            for i in range(1, 7):
+            for i in range(1, 7):  # 每次最多可以向前走6步， 尝试每一种情况
                 nextSquare = square + i
                 r, c = intToPos(nextSquare)
                 if board[r][c] != -1:
