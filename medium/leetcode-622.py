@@ -43,11 +43,24 @@ class MyCircularQueue:
     def isFull(self) -> bool:
         return self.space == 0
 
-# Your MyCircularQueue object will be instantiated and called as such:
-# obj = MyCircularQueue(k)
-# param_1 = obj.enQueue(value)
-# param_2 = obj.deQueue()
-# param_3 = obj.Front()
-# param_4 = obj.Rear()
-# param_5 = obj.isEmpty()
-# param_6 = obj.isFull()
+
+if __name__ == '__main__':
+    # Your MyCircularQueue object will be instantiated and called as such:
+    k = 10
+    obj = MyCircularQueue(k)
+
+    value = 12
+    param_1 = obj.enQueue(value)
+    obj.enQueue(value)
+    obj.enQueue(13)
+    print(param_1)
+    param_2 = obj.deQueue()
+    print(param_2)
+    param_3 = obj.Front()
+    print(param_3)
+    param_4 = obj.Rear()
+    print(param_4)
+    param_5 = obj.isEmpty()
+    print(param_5)
+    param_6 = obj.isFull()
+    print(param_6)
