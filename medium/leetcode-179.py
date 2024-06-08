@@ -1,0 +1,24 @@
+from functools import cmp_to_key
+from typing import List
+
+
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        for i, n in enumerate(nums):
+            nums[i] = str(n)
+
+        def compare(n1, n2):
+            if n1 + n2 > n2 + n1:
+                return -1
+            else:
+                return 1
+
+        nums = sorted(nums, key=cmp_to_key(compare))
+        return str(int("".join(nums)))
+
+
+if __name__ == '__main__':
+    nums = [10, 2, 31]
+    s = Solution()
+    a = s.largestNumber(nums)
+    print(a)
