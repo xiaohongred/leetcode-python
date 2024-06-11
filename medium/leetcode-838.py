@@ -17,7 +17,7 @@ class Solution:
             elif d == "R":
                 if i + 1 < len(dom) and dom[i + 1] == ".":
                     if i + 2 < len(dom) and dom[i + 2] == "L":
-                        q.popleft()
+                        q.popleft()  # 这里是把dom[i+2] 这个位置的 "L" 出队列了
                     else:
                         q.append((i + 1, "R"))
                         dom[i + 1] = "R"
