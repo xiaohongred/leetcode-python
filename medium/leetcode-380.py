@@ -21,7 +21,7 @@ class RandomizedSet:
             self.lists[index] = lastVal
             self.lists.pop()
             self.maps[lastVal] = index
-            del self.maps[val]
+            del self.maps[val]  # 放在最后，处理列表中只有一个数时的情况
             return True
         return False
 
