@@ -21,12 +21,6 @@ class FreqStack:
         return res
 
 
-# Your FreqStack object will be instantiated and called as such:
-# obj = FreqStack()
-# obj.push(val)
-# param_2 = obj.pop()
-
-
 if __name__ == '__main__':
     freqStack = FreqStack()
     freqStack.push(5)  # 堆栈为 [5]
