@@ -20,7 +20,7 @@ class Solution:
             # we want to decrease left element
             if i == 0 or nums[i + 1] >= nums[i - 1]:
                 nums[i] = nums[i + 1]
-            else:
+            else:  # if can not decrease left, increase right
                 nums[i + 1] = nums[i]
             changed = True
         return True
