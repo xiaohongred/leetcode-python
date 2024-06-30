@@ -3,7 +3,23 @@ from typing import List
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        pass
+        res = []
+
+        def dfs(i: int, cur: List[int], total: int):
+            if total == target:
+                res.append(cur.copy())
+                return
+            if i >= len(candidates) or total > target:
+                return
+            cur.append(candidates[i])
+            dfs(i, cur, total + candidates[i])
+
+            cur.pop()
+            dfs(i + 1, cur, total)
+
+        path = []
+        dfs(0, path, 0)
+        return res
 
 
 if __name__ == '__main__':
@@ -13,4 +29,3 @@ if __name__ == '__main__':
     s = Solution()
     a = s.combinationSum(candidates, target)
     print(a)
-   
