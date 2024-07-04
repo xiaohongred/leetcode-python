@@ -4,10 +4,12 @@ from typing import List
 class Solution:
     def findDifferentBinaryString(self, nums: List[str]) -> str:
         strSet = {s for s in nums}
+        li = []
 
         def backtrack(i, cur) -> str:
             if i == len(nums):
                 res = "".join(cur)
+                li.append(res)
                 return None if res in strSet else res
             # cur[i] = "0"
             res = backtrack(i + 1, cur)
@@ -20,7 +22,9 @@ class Solution:
             if res:
                 return res
 
-        return backtrack(0, ["0" for s in nums])
+        a = backtrack(0, ["0" for s in nums])
+        print(li)
+        return a
 
 
 if __name__ == '__main__':
