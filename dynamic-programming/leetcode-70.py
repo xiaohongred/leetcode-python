@@ -20,3 +20,7 @@ if __name__ == '__main__':
     n = 2
     a = s.climbStairs(n)
     print(a)
+
+    n = 5
+    a = s.climbStairs(n)
+    print(a)
