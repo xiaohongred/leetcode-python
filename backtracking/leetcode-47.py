@@ -14,13 +14,14 @@ class Solution:
         def dfs():
             if len(perm) == len(nums):
                 res.append(perm.copy())
+
                 return
 
             for n in count:
                 if count[n] > 0:
                     perm.append(n)
                     count[n] -= 1
-                    
+
                     dfs()
 
                     count[n] += 1
