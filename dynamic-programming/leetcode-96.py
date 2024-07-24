@@ -10,7 +10,7 @@ class Solution:
                 left = root - 1  # 左子树节点个数
                 right = nodes - root  # 右子树节点个数
                 total += numTree[left] * numTree[right]
-            numTree[nodes] = total  # nodes 个从1到nodes的节点，可以有多少个二叉搜索树
+            numTree[nodes] = total  # nodes 个从1到nodes的节点，可以有total个二叉搜索树
         return numTree[n]
 
 
