@@ -24,7 +24,8 @@ class Solution:
 
             return dp[(l, r)]
 
-        return dfs(1, len(nums) - 2)
+        res = dfs(1, len(nums) - 2)
+        return res
 
 
 if __name__ == '__main__':
