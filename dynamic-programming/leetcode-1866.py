@@ -10,7 +10,8 @@ class Solution:
             if (N, K) in dp:
                 return dp[(N, K)]
 
-            dp[(N, K)] = (dfs(N - 1, K - 1) + (N - 1) * dfs(N - 1, K))
+            dp[(N, K)] = (dfs(N - 1, K - 1)  # 最长的放在最右边, 所以最长的肯定能看到， n-1, k-1
+                          + (N - 1) * dfs(N - 1, K))  # 除开最长的，剩下N-1个中任选一个放在最右边，最右边的肯定不能被看到， n-1, k
             return dp[(N, K)]
 
         return dfs(n, k) % (10 ** 9 + 7)
