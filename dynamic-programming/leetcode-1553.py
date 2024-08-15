@@ -31,8 +31,8 @@ class Solution:
         def dfs(n: int) -> int:
             if n in dp:
                 return dp[n]
-            typeDay1 = dfs(n // 2) + n % 2 + 1
-            typeDay2 = dfs(n // 3) + n % 3 + 1
+            typeDay1 = dfs(n // 2) + n % 2 + 1  # n%2 代表为了使n可以被2整除，需要先吃掉多少个
+            typeDay2 = dfs(n // 3) + n % 3 + 1  # n%3 代表为了使n可以被3整除，需要先吃掉多少个
             dp[n] = min(typeDay1, typeDay2)
             return dp[n]
 
