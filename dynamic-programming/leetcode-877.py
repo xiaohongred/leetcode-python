@@ -15,9 +15,9 @@ class Solution:
 
             # 模拟 alice 选择和 bob选择的情况
             res = max(piles[l] + dfs(l + 2, r),  # alice 选择左边 且之后bob也选择左边
-                      piles[l] + dfs(l + 1, r - 1),  # alice 选择左边 之后bob也选择右边
+                      piles[l] + dfs(l + 1, r - 1),  # alice 选择左边 之后bob选择右边
                       piles[r] + dfs(l, r - 2),  # alice 选择右边 且之后bob也选择右边
-                      piles[r] + dfs(l + 1, r - 1))  # alice 选择右边 之后bob也选择左边
+                      piles[r] + dfs(l + 1, r - 1))  # alice 选择右边 之后bob选择左边
             dp[(l, r)] = res
             return res
 
