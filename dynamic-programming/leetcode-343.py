@@ -38,10 +38,11 @@ class Solution:
         for num in range(2, n + 1):
             dp[num] = 0 if num == n else num  # n 必须被拆分 由n分解后得到的数num，可以保持为num
 
-            # 这里计算出 dp[num] 的值  也就是说 num 被拆分后，乘积最大能是 dp[num]
+            # 这里计算出 dp[num] 的值  也就是说 num 被拆分后(如果 num 不是 n,可以不被拆分)，乘积最大能是 dp[num]
             for i in range(1, num):
                 val = dp[i] * dp[num - i]
                 dp[num] = max(dp[num], val)
+        
         return dp[n]
 
 
