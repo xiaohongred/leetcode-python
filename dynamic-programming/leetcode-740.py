@@ -12,14 +12,16 @@ class Solution:
         nums = sorted(list(set(nums)))  # 去重，排序
 
         earn1, earn2 = 0, 0
-        # e1  e2
-        # [1, 2, 3]
+        #   e1  e2
+        #   [1, 2, 3]
+        # [0 1 2 3]
         for i in range(len(nums)):
             curEarn = nums[i] * numToCount[nums[i]]
             # can not use both curEarn and earn2
             if i > 0 and nums[i] == nums[i - 1] + 1:
                 temp = earn2
-                # 前一个元素不可用, 两个选择选其中一个，
+                # 前一个元素不可用,因为 nums[i] == nums[i - 1] + 1，
+                # 两个选择选其中一个
                 # 一个是用当前元素+前前一个元素 -> curEarn + earn1
                 # 另一个是使用 前一个元素 -> earn2
                 earn2 = max(curEarn + earn1, earn2)
