@@ -8,9 +8,9 @@ class Solution:
         for i, h in enumerate(heights):
             start = i
             while start and stack[-1][1] > h:
-                index, height = stack.pop()
-                maxArea = max(maxArea, height * (i - index))
-                start = index
+                preIndex, preHeight = stack.pop()
+                maxArea = max(maxArea, preHeight * (i - preIndex))  # (i - preIndex) 代表 preHeight 可以组成矩阵的宽度
+                start = preIndex
             stack.append((start, h))
         for i, h in stack:
             maxArea = max(maxArea, h * (len(heights) - i))
