@@ -17,6 +17,19 @@ class Solution:
             stack.append(int(c))
         return sum(stack)
 
+    def calPointsV2(self, operations: List[str]) -> int:
+        stack = []
+        for op in operations:
+            if op == "+":
+                stack.append(stack[-1] + stack[-2])
+            elif op == "D":
+                stack.append(2 * stack[-1])
+            elif op == "C":
+                stack.pop()
+            else:
+                stack.append(int(op))
+        return sum(stack)
+
 
 if __name__ == '__main__':
     ops = ["5", "2", "C", "D", "+"]
