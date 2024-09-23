@@ -21,14 +21,15 @@ class Solution:
         curMin = nums[0]
         for n in nums[1:]:
             while stack and n >= stack[-1][0]:
+                # stack[-1][0] 的值是已经遍历过的数中最大的
                 stack.pop()
             if stack and stack[-1][1] < n < stack[-1][0]:  # 感觉这样写更容易比较
                 # 需要满足 i < j < k 和 nums[i] < nums[k] < nums[j]
-                # n 相当于是 nums[k],
+                # n 相当于是 nums[k],  i < j < k,   n 在nums中的索引是最右边的(当前遍历到的) 所以 n 相当于是 nums[k]
                 # stack[-1][1] 是 minLeft， 相当于上面的 nums[i]，
                 # stack[-1][0]相当于 nums[j]
                 return True
-            stack.append([n, curMin])
+            stack.append([n, curMin])  # stack[-1][0] 的值是已经遍历过的数中最大的
             curMin = min(curMin, n)
         return False
 
