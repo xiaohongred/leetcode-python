@@ -14,7 +14,29 @@ class Solution:
             q.append(r)
 
             # remove left val from window
+            # 用　while 也可以
             if l > q[0]:  # q[0] 代表nums中最左侧的元素的索引，如果 l > q[0],则代表窗口已经不包括 nums[q[0]] 这个数了，需要出队列
+                q.popleft()
+
+            if (r + 1) >= k:  # 从 nums 数组的第 k 个数开始，每次都需要往output数组中赋值了
+                output.append(nums[q[0]])
+                l += 1  # 窗口右移
+
+            r += 1  # 窗口右移
+        return output
+
+    def maxSlidingWindowV1(self, nums: List[int], k: int) -> List[int]:
+        output = []
+        q = collections.deque()  # index
+
+        l = r = 0
+        while r < len(nums):
+            while q and nums[q[-1]] < nums[r]:  # 保证 q 队列是单调递减的
+                q.pop()
+            q.append(r)
+
+            # remove left val from window
+            while l > q[0]:  # q[0] 代表nums中最左侧的元素的索引，如果 l > q[0],则代表窗口已经不包括 nums[q[0]] 这个数了，需要出队列
                 q.popleft()
 
             if (r + 1) >= k:  # 从 nums 数组的第 k 个数开始，每次都需要往output数组中赋值了
