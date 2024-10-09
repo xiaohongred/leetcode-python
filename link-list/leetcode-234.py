@@ -60,3 +60,13 @@ if __name__ == '__main__':
     head = tools.buildList(l)
     a = s.isPalindrome(head)
     print(a)
+
+    l = [1, 2, 2, 1]
+    head = tools.buildList(l)
+    a = s.isPalindromeV2(head)
+    print(a)
+
+    l = [1, 2]
+    head = tools.buildList(l)
+    a = s.isPalindromeV2(head)
+    print(a)
