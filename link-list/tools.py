@@ -13,6 +13,20 @@ def buildList(arr: list[int]) -> ListNode:
     return dummyHead.next
 
 
+def buildCircleList(arr: list[int], i: int) -> ListNode:
+    dummyHead = ListNode()
+    p = dummyHead
+    indexToNodeMap = {}
+    curIndex = 0
+    for n in arr:
+        p.next = ListNode(n)
+        indexToNodeMap[i] = p.next
+        p = p.next
+    if i >= 0:
+        p.next = indexToNodeMap[i]
+    return dummyHead.next
+
+
 def printList(head: ListNode):
     while head:
         print(head.val, end="")
