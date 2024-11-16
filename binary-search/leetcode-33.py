@@ -23,9 +23,9 @@ class Solution:
                     r = mid - 1
                 else:
                     l = mid + 1
-            return -1
+        return -1
 
-    def search(self, nums: List[int], target: int) -> int:
+    def searchV2(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
         # 旋转位置成为pivot
         while l <= r:
@@ -66,4 +66,19 @@ if __name__ == '__main__':
     nums = [1]
     target = 0
     a = s.search(nums, target)
+    print(a)
+
+    nums = [4, 5, 6, 7, 0, 1, 2]
+    target = 0
+    a = s.searchV2(nums, target)
+    print(a)
+
+    nums = [4, 5, 6, 7, 0, 1, 2]
+    target = 3
+    a = s.searchV2(nums, target)
+    print(a)
+
+    nums = [1]
+    target = 0
+    a = s.searchV2(nums, target)
     print(a)
