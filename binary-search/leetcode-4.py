@@ -31,12 +31,12 @@ class Solution:
 
                 # odd
                 if total % 2:
-                    return min(Aright, Bright)
+                    return min(Aright, Bright)  # 把两个数组合并之后， 第 half+1 个数才是想要的，所以 是 min(Aright, Bright)
                 else:  # even
                     return (max(Aleft, Bleft) + min(Aright, Bright)) / 2
             elif Aleft > Bright:
                 r = i - 1
-            else:
+            else:  # Bleft > Aright
                 l = i + 1
 
 
