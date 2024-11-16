@@ -27,7 +27,7 @@ class Solution:
 
     def searchV2(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
-        # 旋转位置成为pivot
+        # 旋转位置称为pivot
         while l <= r:
             mid = (r + l) // 2
             if target == nums[mid]:
@@ -35,9 +35,13 @@ class Solution:
             # 如果[l, r] 之间不包括 pivot 点， 就是正常的 二分查找
             # 一直缩小 [l, r] 的区间， 直到 r > l ,跳出循环
             if nums[l] <= nums[mid]:  # 如果 [l, r] 之间包括了 pivot, nums[l] <= nums[mid] 代表 mid 在 pivot的左侧
-                if target > nums[mid]:  # target 可能在 mid 到 pivot 之间
+                if target > nums[mid]:
+                    # 如果 [l, r] 之间包括了 pivot, target 可能在 mid 到 pivot 之间,
+                    # 如果 [l, r] 之间不包括了 pivot, 则 target 可能在 mid 到 r之间
                     l = mid + 1
-                elif target < nums[l]:  # target可能在 pivot 到 r 之间
+                elif target < nums[l]:
+                    # 如果 [l, r] 之间包括了 pivot, target可能在 pivot 到 r 之间
+                    # 如果 [l, r] 之间不包括了 pivot, 不可能进入这个分支
                     l = mid + 1
                 else:
                     r = mid - 1
