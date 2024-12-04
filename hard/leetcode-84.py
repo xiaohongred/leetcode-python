@@ -8,9 +8,9 @@ class Solution:
         for i, h in enumerate(heights):
             start = i
             while stack and stack[-1][1] > h:  # stack 是一个按照矩形高度递增的栈
-                # 遇到高度减小的情况了，计算
+                # 遇到高度减小的情况了，计算 stack 中能组成的矩阵大小
                 preIndex, preHeight = stack.pop()
-                maxArea = max(maxArea, preHeight * (i - preIndex))
+                maxArea = max(maxArea, preHeight * (i - preIndex))  # (i - preIndex) 为 stack 中组成的矩阵的宽度，不包括当前的 i 
                 start = preIndex
             # 如果 stack[-1][1] <= h, 直接入栈
             stack.append((start, h))
