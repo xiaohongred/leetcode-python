@@ -28,7 +28,6 @@ class Solution:
                     k0 = k - 1
                     while j < k0 and nums[k0] == nums[k]:
                         k0 -= 1
-
                     k = k0
                 else:
                     j0 = j + 1
