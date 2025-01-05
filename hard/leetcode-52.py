@@ -18,12 +18,15 @@ class Solution:
                         or (r + c) in posDiag \
                         or (r - c) in negDiag:
                     continue
+
+                # 相当于在 (r, c) 位置放置一个皇后
                 colSet.add(c)
                 posDiag.add(r + c)
                 negDiag.add(r - c)
 
                 backtrack(r + 1)  # 递归迭代每行
 
+                # 去掉 (r, c) 位置的皇后
                 colSet.remove(c)  # 回溯,恢复状态
                 posDiag.remove(r + c)
                 negDiag.remove(r - c)
