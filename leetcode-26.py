@@ -6,14 +6,15 @@ class Solution:
         numLen = len(nums)
         if numLen == 1:
             return 1
-        i = 0
-        j = 1
+        i = 0  # 指向第一个唯一元素
+        j = 1  # 遍历元素
         while j < numLen:
             if nums[i] == nums[j]:
                 j += 1
             else:
-                i += 1
+                i += 1  # nums[i] != nums[j] 时， 增加i,并把 nums[j] 前移到 nums[i]
                 nums[i] = nums[j]
+                j += 1
 
         return i + 1
 

@@ -8,7 +8,7 @@ class Solution:
         """
         i, j = 0, 0
         while i < len(nums) and nums[i] != 0:
-            i += 1
+            i += 1  # i 指向第一个为0 的位置
 
         if i >= len(nums) - 1:
             return
@@ -20,9 +20,9 @@ class Solution:
                 i += 1
                 j += 1
             else:
-                j += 1
+                j += 1  # j 把不为0的位置移动到i位置
 
-        while i < len(nums):
+        while i < len(nums):  # 把剩下的位置置为0
             nums[i] = 0
             i += 1
 
