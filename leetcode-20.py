@@ -40,6 +40,20 @@ class Solution:
 
         return True
 
+    def isValidV3(self, s: str) -> bool:
+        st = []
+        closeToOpen = {")": "(", "]": "[", "}": "{"}
+        for c in s:
+            if c in closeToOpen:
+                if st and st[-1] == closeToOpen[c]:
+                    st.pop()
+                else:
+                    return False
+            else:
+                st.append(c)
+
+        return True if not st else False
+
 
 if __name__ == '__main__':
     s = "[][][][][]{{}}"
