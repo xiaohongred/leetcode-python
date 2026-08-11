@@ -11,9 +11,27 @@ class Solution:
 
         return two
 
+    def climbStairsV2(self, n: int) -> int:
+        cache = {}
+
+        def dp(n: int):
+            if n in cache:
+                return cache[n]
+
+            if n == 1 or n == 2 or n == 0:
+                cache[n] = n
+                return n
+            cache[n] = dp(n - 1) + dp(n - 2)
+            return cache[n]
+
+        return dp(n)
+
 
 if __name__ == '__main__':
     n = 3
     s = Solution()
     a = s.climbStairs(n)
+    print(a)
+
+    a = s.climbStairsV2(n)
     print(a)
