@@ -21,6 +21,28 @@ class Solution:
         dfs(0)
         return res
 
+    def subsets_Backtrack(self, nums: List[int]) -> List[List[int]]:
+        res = []
+
+        subset = []
+
+        def backtrack(start, path):
+            res.append(path.copy())  # 每个节点都是答案。
+
+            for i in range(start, len(nums)):
+                path.append(nums[i])
+                backtrack(i + 1, path)
+                path.pop()
+
+        backtrack(0, subset)
+        return res
+
 
 if __name__ == '__main__':
-    pass
+    s = Solution()
+    nums = [1, 2, 3]
+    a = s.subsets_Backtrack(nums)
+    print(a)
+
+    b = s.subsets(nums)
+    print(a)
