@@ -25,6 +25,42 @@ class Solution:
                 i -= 1  # cancel  i+=1,   nums[r] might be zero
             i += 1
 
+    def sortColorsV2(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        bucket = [0] * 3
+        for n in nums:
+            bucket[n] += 1
+
+        gidx = 0
+        number = 0
+        for n in bucket:
+            while n > 0:
+                nums[gidx] = number
+                n -= 1
+                gidx += 1
+            number += 1
+
+        return
+
+    def sortColorsV3(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        bucket = [0] * 3
+        for n in nums:
+            bucket[n] += 1
+
+        gidx = 0
+        for idx, n in enumerate(bucket):
+            while n > 0:
+                nums[gidx] = idx
+                n -= 1
+                gidx += 1
+
+        return
+
 
 if __name__ == '__main__':
     nums = [2, 0, 2, 1, 1, 0]

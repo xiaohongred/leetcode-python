@@ -10,6 +10,7 @@ def bubble_sort(nums: list[int]):
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
 
-nums = [5, 2, 4, 6, 1, 3]
+if __name__ == '__main__':
+    nums = [5, 2, 4, 6, 1, 3]
 
-print(bubble_sort(nums))
+    print(bubble_sort(nums))

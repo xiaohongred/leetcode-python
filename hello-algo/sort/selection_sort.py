@@ -14,6 +14,7 @@ def selection_sort(nums: list[int]):
     return nums
 
 
-nums = [5, 2, 4, 6, 1, 3]
+if __name__ == '__main__':
+    nums = [5, 2, 4, 6, 1, 3]
 
-print(selection_sort(nums))
+    print(selection_sort(nums))

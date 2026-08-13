@@ -31,6 +31,7 @@ def heap_sort(nums: list[int]):
         sift_down(nums, i, 0)
 
 
-nums = [5, 2, 4, 6, 1, 3]
-heap_sort(nums)
-print(nums)
+if __name__ == '__main__':
+    nums = [5, 2, 4, 6, 1, 3]
+    heap_sort(nums)
+    print(nums)
