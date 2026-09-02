@@ -1,7 +1,7 @@
 class Solution:
     def uniformArray(self, nums1: list[int]) -> bool:
         # 奇数
-        canFlag1 = True
+        oddFlag = True
         for idx, n in enumerate(nums1):
             if n % 2 != 0:
                 continue
@@ -18,12 +18,12 @@ class Solution:
             if tempFlag:
                 continue
 
-            canFlag1 = False
+            oddFlag = False
             break
-        if canFlag1:
+        if oddFlag:
             return True
         # 偶数
-        canFlag2 = True
+        evenFlag = True
         for idx, n in enumerate(nums1):
             if n % 2 == 0:
                 continue
@@ -42,9 +42,9 @@ class Solution:
             if tempFlag:
                 continue
 
-            canFlag2 = False
+            evenFlag = False
             break
-        return canFlag1 or canFlag2
+        return oddFlag or evenFlag
 
 if __name__ == "__main__":
     solution = Solution()
