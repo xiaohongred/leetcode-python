@@ -4,9 +4,7 @@ class Solution:
 
         for i in range(n):
             maxI = max(nums[0:i+1])
-
             minI = min(nums[i:n])
-
             if maxI - minI <= k:
                 return i
         return -1
