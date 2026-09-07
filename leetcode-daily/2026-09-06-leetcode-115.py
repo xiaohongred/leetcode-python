@@ -103,6 +103,35 @@ class Solution:
 
         # 返回 s 的全部字符组成 t 的子序列数量。
         return dp[m][n]
+    def numDistinctDpSaveSpace(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        # dp[j] 表示 s 的前 i 个字符中，组成 t 的前 j 个字符的子序列数量。
+        dp = [0] * (n + 1)
+        dp[0] = 1  # 空字符串是任意字符串的一个子序列。
+
+        for i in range(1, m + 1):
+            # 从后向前更新 dp 数组，避免覆盖之前的状态。
+            for j in range(n, 0, -1):
+                if s[i - 1] == t[j - 1]:
+                    dp[j] += dp[j - 1]
+
+        return dp[n]
+
+    def numDistinctDpSaveSpaceV2(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        curr = [0] * (n + 1)
+        prev = [0] * (n + 1)
+        prev[0] = 1  # 空字符串是任意字符串的一个子
+        curr[0] = 1  # 空字符串是任意字符串的一个子序列。
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if s[i - 1] == t[j - 1]:
+                    curr[j] = prev[j - 1] + prev[j]
+                else:
+                    curr[j] = prev[j]
+            prev, curr = curr, prev  # 更新 prev 为当前行，curr 为下一行。
+        return prev[n]
+
 
 if __name__ == "__main__":
     s = "rabbbit"
