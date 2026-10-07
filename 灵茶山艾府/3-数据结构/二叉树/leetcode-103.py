@@ -1,5 +1,3 @@
-from collections import deque
-
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -7,12 +5,12 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def levelOrder(self, root: TreeNode | None) -> list[list[int]]:
+    def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
         if root is None:
             return []
 
         ans = []
-
+        even = False
         cur = [root]
         while cur:
             nxt = []
@@ -24,22 +22,8 @@ class Solution:
                 if node.right: nxt.append(node.right)
 
             cur = nxt
-            ans.append(vals)
-        return ans
-    def levelOrderV2(self, root: TreeNode | None) -> list[list[int]]:
-        q = deque()
-        if root is not None:
-            q.append(root)
-        ans = []
-        while q:
-            size = len(q)
-            vals = []
-            for _ in range(size):
-                node = q.popleft()
-                vals.append(node.val)
-                if node.left: q.append(node.left)
-                if node.right: q.append(node.right)
-            ans.append(vals)
+            ans.append(vals[::-1] if even else vals)
+            even = not even
         return ans
 
 if __name__ == "__main__":
@@ -49,7 +33,5 @@ if __name__ == "__main__":
     root.left = TreeNode(9)
     root.right = TreeNode(20, TreeNode(15), TreeNode(7))
 
-    level_order = s.levelOrder(root)
-    print(level_order)  # 输出二叉树的层序遍历结果
-
-    
+    zigzag_order = s.zigzagLevelOrder(root)
+    print(zigzag_order)  # 输出二叉树的锯齿形层序遍历结果
