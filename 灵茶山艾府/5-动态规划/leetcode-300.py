@@ -41,6 +41,17 @@ class Solution:
             ans = max(ans, dfs(i))
         return ans
 
+    def lengthOfLISDp(self, nums: list[int]) -> int:
+        n = len(nums)
+
+        f = [0] * n
+        for i in range(n):
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    f[i] = max(f[i], f[j])
+            f[i] += 1  # 无论前面能不能接上，nums[i] 自身都算一个元素，所以 +1
+
+        return max(f)  # 最长的子序列可能以任意下标结尾，所以每种结尾都试一下，取最大值
 
 if __name__ == "__main__":
     s = Solution()
