@@ -1,48 +1,5 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-<<<<<<< HEAD
-        mySet = {}
-        ans = 0
-        l = 0
-        for i, c in enumerate(s):
-            mySet[c] = mySet.get(c, 0) + 1
-
-            Len = i - l + 1
-            while len(mySet) < Len:
-                mySet[s[l]] -= 1
-                if mySet[s[l]] == 0:
-                    del mySet[s[l]]
-                l += 1
-                Len = i - l + 1
-            
-            ans = max(ans, Len)
-        return ans
-
-    def lengthOfLongestSubstringV2(self, s: str) -> int:
-        charSet = set()
-
-        l = 0
-        res = 0
-        for r in range(len(s)):
-            while s[r] in charSet:
-                charSet.remove(s[l])
-                l += 1
-            charSet.add(s[r])
-            res = max(res, r - l + 1)
-
-        return res
-
-
-if __name__ == "__main__":
-    s = Solution()
-    print(s.lengthOfLongestSubstring("abcabcbb"))
-    print(s.lengthOfLongestSubstring("bbbbb"))
-    print(s.lengthOfLongestSubstring("pwwkew"))
-    print(s.lengthOfLongestSubstring(""))
-    print(s.lengthOfLongestSubstring(" "))
-    print(s.lengthOfLongestSubstring("au"))
-    print(s.lengthOfLongestSubstring("dvdf"))
-=======
         """
         题意：找出不含重复字符的**最长子串**的长度（子串必须连续）。
 
@@ -79,6 +36,18 @@ if __name__ == "__main__":
 
         return ans
 
+    def lengthOfLongestSubstringV2(self, s: str) -> int:
+        ans = 0
+        cnt = Counter()
+        left = 0
+        for right, c in enumerate(s):
+            cnt[c] += 1
+            while cnt[c] > 1:
+                cnt[s[left]] -= 1
+                left += 1
+            ans = max(ans, right - left + 1)
+        return ans
+
 
 if __name__ == "__main__":
     solution = Solution()
@@ -94,4 +63,3 @@ if __name__ == "__main__":
     s = "pwwkew"
     result = solution.lengthOfLongestSubstring(s)
     print(result)  # Output: 3   （"wke"，注意不是 "pwke"，因为子串必须连续）
->>>>>>> 7fd504d7bb705f870ad217538af29e847e78c7b6
